@@ -51,10 +51,6 @@ header nav {
     justify-content: space-between; /* Espace les éléments (si nécessaire) */
 }
 
-body {
-    background-image: url("images/logo proxitechno.webp"); /* Chemin vers ton logo */
-    
-}
 
 section {
     padding: 20px;
