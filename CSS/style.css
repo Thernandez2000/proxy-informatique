@@ -51,6 +51,20 @@ header nav {
     justify-content: space-between; /* Espace les éléments (si nécessaire) */
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    background-image: url("images/logo-proxitechno.webp"); /* Chemin vers ton logo */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%; /* Ajuste la taille du logo */
+    opacity: 0.1; /* Rend le logo discret comme filigrane */
+    background-attachment: fixed; /* Reste fixe lors du défilement */
+}
 
 section {
     padding: 20px;
