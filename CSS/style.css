@@ -39,7 +39,7 @@ header nav ul li a:hover {
 }
 /* Style pour le logo dans la barre de navigation */
 header nav .logo img {
-    height: 60px; /* Ajuste la taille du logo */
+    height: 150px; /* Ajuste la taille du logo */
     width: auto; /* Maintient les proportions */
     margin-right: 20px; /* Espacement à droite du logo */
 }
