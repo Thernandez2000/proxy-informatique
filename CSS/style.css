@@ -52,11 +52,10 @@ header nav {
 }
 
 body {
-    background-image: url("images/logo-proxitechno.webp"); /* Chemin vers ton logo */
+    background-image: url("images/logo proxitechno.webp"); /* Chemin vers ton logo */
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%; /* Ajuste la taille du logo */
-    opacity: 0.1; /* Rend le logo discret comme filigrane */
     background-attachment: fixed; /* Reste fixe lors du défilement */
 }
 
