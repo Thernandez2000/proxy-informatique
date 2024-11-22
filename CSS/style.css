@@ -37,6 +37,20 @@ header nav ul li a {
 header nav ul li a:hover {
     text-decoration: underline;
 }
+/* Style pour le logo dans la barre de navigation */
+header nav .logo img {
+    height: 40px; /* Ajuste la taille du logo */
+    width: auto; /* Maintient les proportions */
+    margin-right: 20px; /* Espacement à droite du logo */
+}
+
+/* Met à jour la flexibilité pour le contenu de la navigation */
+header nav {
+    display: flex; /* Active Flexbox */
+    align-items: center; /* Aligne verticalement le logo et les liens */
+    justify-content: space-between; /* Espace les éléments (si nécessaire) */
+}
+
 
 section {
     padding: 20px;
