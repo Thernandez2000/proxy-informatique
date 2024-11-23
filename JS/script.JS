@@ -1,48 +1,41 @@
-// Gestion de la pop-up pour l'assemblage
-document.addEventListener("DOMContentLoaded", function() {
-    const popup = document.getElementById("popup-assemblage");
-    const closeBtn = document.querySelector(".close-btn");
-     // Ajouter un flag pour éviter d'ouvrir plusieurs popups
-    let isPopupOpen = false;
+document.querySelectorAll('.ordinateur-type').forEach(function (type) {
+    type.addEventListener('click', function () {
+        const typeId = this.id; // Récupère l'id de l'élément cliqué
+        const configContainer = document.getElementById('configurations');
+        const popup = document.getElementById('popup-config');
+        
+        // Configuration des PCs selon le type
+        let configurationsHTML = '';
 
-    // Recherche tous les éléments <h3> dans des éléments ayant la classe .service-item
-    let elements = document.querySelectorAll('.service-item h3');
-
-    // Boucle pour trouver le <h3> avec le texte souhaité
-    elements.forEach(function(element) {
-        if (element.textContent.includes('Assemblage d\'ordinateur')) {
-            // Ouvrir la popup lorsque le titre est cliqué
-            element.addEventListener('click', function() {
-                    if (!isPopupOpen) {
-                    popup.style.display = 'flex';
-                    isPopupOpen = true;  // Marquer la popup comme ouverte
-                }
-            });
+        if (typeId === 'bureautique') {
+            configurationsHTML = `
+                <div class="config">
+                    <h4>Configurations par défaut - Ordinateur Bureautique</h4>
+                    <ul>
+                        <li>Config 1 : Processeur i3, 8Go RAM, SSD 256Go - <strong>500€</strong></li>
+                        <li>Config 2 : Processeur i5, 16Go RAM, SSD 512Go - <strong>700€</strong></li>
+                        <li>Config 3 : Processeur Ryzen 5, 16Go RAM, SSD 1To - <strong>850€</strong></li>
+                    </ul>
+                </div>
+            `;
+        } else if (typeId === 'gaming') {
+            configurationsHTML = `
+                <div class="config">
+                    <h4>Configurations par défaut - PC Gaming</h4>
+                    <ul>
+                        <li>Config 1 : Processeur i5, GTX 1660, 16Go RAM, SSD 512Go - <strong>1000€</strong></li>
+                        <li>Config 2 : Processeur i7, RTX 3060, 32Go RAM, SSD 1To - <strong>1500€</strong></li>
+                        <li>Config 3 : Processeur Ryzen 7, RTX 3070, 32Go RAM, SSD 2To - <strong>2000€</strong></li>
+                    </ul>
+                </div>
+            `;
         }
-    });
 
-    // Fermer la pop-up avec le bouton de fermeture
-    closeBtn.addEventListener("click", function() {
-        popup.style.display = "none";
-        isPopupOpen = false;  // Réinitialiser le flag lorsque la popup est fermée
+        configContainer.innerHTML = configurationsHTML;
+        popup.style.display = 'block';
+    });
+});
 
-    });
-
-    // Gestion des boutons "Bureautique" et "Gaming"
-    document.getElementById('btn-bureautique').addEventListener('click', function () {
-        document.getElementById('bureautique-config').classList.remove('hidden');
-        document.getElementById('gaming-config').classList.add('hidden');
-    });
-
-    document.getElementById('btn-gaming').addEventListener('click', function () {
-        document.getElementById('gaming-config').classList.remove('hidden');
-        document.getElementById('bureautique-config').classList.add('hidden');
-    });
-    // Fermer la pop-up en cliquant en dehors
-    window.addEventListener('click', function (e) {
-        if (e.target.id === 'popup-assemblage') {
-            popup.style.display = 'none';
-            isPopupOpen = false;  // Réinitialiser le flag lorsque la popup est fermée
-        }
-    });
+document.querySelector('.close-btn').addEventListener('click', function () {
+    document.getElementById('popup-config').style.display = 'none';
 });
