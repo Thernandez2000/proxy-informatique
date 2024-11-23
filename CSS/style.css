@@ -166,6 +166,16 @@ footer {
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
     z-index: 1;
 }
+.dropdown-content a {
+    color: white; /* Couleur du texte des liens */
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #575757; /* Changer de couleur au survol pour l'interaction */
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
