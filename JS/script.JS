@@ -39,3 +39,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+// Sélectionne l'élément avec l'attribut data-service égal à 'Assemblage d'ordinateur'
+let element = document.querySelector('.service-item[data-service="Assemblage d\'ordinateur"]');
+
+if (element) {
+    console.log('Élément trouvé :', element);
+    // Ouvrir la popup
+    document.getElementById('popup-assemblage').style.display = 'block';
+}
