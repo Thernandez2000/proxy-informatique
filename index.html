@@ -1,78 +1,122 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProxiTechno Informatique</title>
-    <link rel="stylesheet" href="CSS\style.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#a-propos">À propos</a></li>
-                <li><a href="#services">services et tarification</a></li>
-            </ul>
-        </nav>
-    </header>
+	<head>
+    		<meta charset="UTF-8">
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    		<title>ProxiTechno Informatique</title>
+    		<link rel="stylesheet" href="CSS\style.css">
+	</head>
+	<body>
+    		<header>
+        		<nav>
+		    		<!-- Logo à gauche -->
+    		       			<div class="logo">
+            					<a href="index.html"><img src="CSS/images/logo proxitechno.webp" alt="ProxiTechno Logo"></a>
+        	 			</div>
+            			        <ul>
+                				<li><a href="#accueil">Accueil</a></li>
+                				<li><a href="#a-propos">À propos</a></li>
+               					<li class="dropdown">
+                    					<a href="#" class="dropbtn">Services et Tarification</a>
+                    					<div class="dropdown-content">
+                        					<a href="#services">Mes Services</a>
+                        					<a href="#choix-ordinateur">Choix de votre ordinateur</a>
+                    					</div>
+                				</li>
+            				</ul>
+
+        		</nav>
+    		</header>
+        	<section id="accueil">
+        	<h1>Bienvenue chez ProxiTechno Informatique</h1>
+        	<p>Votre expert en maintenance informatique rapide, fiable et proche de vous.</p>
+        	<img src="CSS\images\image informatique moderne.avif" alt="Image informatique moderne">
+    	</section>
     
-    <section id="accueil">
-        <h1>Bienvenue chez ProxiTechno Informatique</h1>
-        <p>Votre expert en maintenance informatique rapide, fiable et proche de vous.</p>
-        <img src="CSS\images\image informatique moderne.avif" alt="Image informatique moderne">
-    </section>
-    
-    <section id="a-propos">
-        <h2>À propos de ProxiTechno Informatique</h2>
-        <p>Proxi Informatique est une entreprise spécialisée dans la maintenance et la réparation informatique. 
-           Nous intervenons rapidement pour résoudre vos problèmes et vous accompagner dans l’utilisation de vos appareils numériques.</p>
-        <img src="CSS\images\réparation informatique.avif" alt="Image de réparation informatique">
-    </section>
-    <section id="services" class="services">
-		<div class="services">
-            <div class="service">
-				<div class="container">
-					<h2 class="title">Mes Services</h2>
-					<div class="service-item">
-						<img src="https://img.icons8.com/ios-filled/50/2c3e50/computer.png" alt="Réparation d'ordinateur">
-						<h3>Réparation d'ordinateur</h3>
-						<p>Réparation de pannes matérielles et logicielles, diagnostic, remplacement de composants défectueux.</p>
-						<p><strong>Prix</strong> : 50€ + prix des pièces à échanger</p>
-					</div>
-					<div class="service-item">
-						<h3>Suppression de virus</h3>
-						<p>Suppression des virus, malwares, et optimisations pour sécuriser l'ordinateur.</p>
-						<p><strong>Prix</strong> : 40€</p>
-					</div>
-					<div class="service-item">
-						<h3>Récupération des données</h3>
-						<p>Récupération des données perdues, qu’elles soient supprimées ou sur disque dur endommagé.</p>
-						<p><strong>Prix</strong> : 70€ pour une récupération simple (fichiers supprimés)</p>
-						<p><strong>Prix</strong> : 150€ pour une récupération sur disque dur endommagé</p>
-						<p><strong>Disque trop endommagé</strong> : Service d'évaluation gratuit ou 10€ pour l'analyse et confirmation de la non-récupération.</p>
-					</div>
-					<div class="service-item">
-						<h3>Installation d'OS</h3>
-						<p>Installation de l'OS (Windows, Linux, etc.), mise à jour des pilotes, configuration initiale.</p>
-						<p><strong>Prix</strong> : 50€</p>
-					</div>
-					<div class="service-item">
-						<h3>Assemblage d'ordinateur</h3>
-						<p>Assemblage d’un PC sur mesure selon les besoins (bureautique ou gaming), tests et configuration.</p>
-						<p><strong>Prix</strong> : 50€ pour un ordinateur bureautique</p>
-						<p><strong>Prix</strong> : 100€ pour un PC gaming</p>
-					</div>
+    	<section id="a-propos">
+        	<h2>À propos de ProxiTechno Informatique</h2>
+        	<p>Proxi Informatique est une entreprise spécialisée dans la maintenance et la réparation informatique. 
+        	Nous intervenons rapidement pour résoudre vos problèmes et vous accompagner dans l’utilisation de vos appareils numériques.</p>
+        	<img src="CSS\images\réparation informatique.avif" alt="Image de réparation informatique">
+    	</section>
+    	<section id="services" class="services">
+			<div class="services">
+            			<div class="service">
+					<div class="container">
+						<h2 class="title">Mes Services</h2>
+						<div class="service-item">
+							<img src="https://img.icons8.com/ios-filled/50/2c3e50/computer.png" alt="Réparation d'ordinateur">
+							<h3>Réparation d'ordinateur</h3>
+							<p>Réparation de pannes matérielles et logicielles, diagnostic, remplacement de composants défectueux.</p>
+							<p><strong>Prix</strong> : 50€ + prix des pièces à échanger</p>
+						</div>
+						<div class="service-item">
+							<h3>Suppression de virus</h3>
+							<p>Suppression des virus, malwares, et optimisations pour sécuriser l'ordinateur.</p>
+							<p><strong>Prix</strong> : 40€</p>
+						</div>
+						<div class="service-item">
+							<h3>Récupération des données</h3>
+							<p>Récupération des données perdues, qu’elles soient supprimées ou sur disque dur endommagé.</p>
+							<p><strong>Prix</strong> : 70€ pour une récupération simple (fichiers supprimés)</p>
+							<p><strong>Prix</strong> : 150€ pour une récupération sur disque dur endommagé</p>
+							<p><strong>Disque trop endommagé</strong> : Service d'évaluation gratuit ou 10€ pour l'analyse et confirmation de la non-récupération.</p>
+						</div>
+						<div class="service-item">
+							<h3>Installation d'OS</h3>
+							<p>Installation de l'OS (Windows, Linux, etc.), mise à jour des pilotes, configuration initiale.</p>
+							<p><strong>Prix</strong> : 50€</p>
+						</div>
+						<div class="service-item">
+							<h3>Assemblage d'ordinateur</h3>
+							<p>Assemblage d’un PC sur mesure selon les besoins (bureautique ou gaming), tests et configuration.</p>
+							<p><strong>Prix</strong> : 50€ pour un ordinateur bureautique</p>
+							<p><strong>Prix</strong> : 100€ pour un PC gaming</p>
+						</div>
+					</div>	
+				</div>
 			</div>
-		</div>	
-	</section>
-     
+		</section>
+		<section id="choix-ordinateur">
+        		<h2>Choisissez votre type d'ordinateur</h2>
+       		 	<div class="ordinateur-types">
+            			<div class="ordinateur-type" id="bureautique">
+                			<img src="CSS/images/ordinateur-bureautique.jpg" alt="Ordinateur Bureautique">
+                			<h3>Bureautique</h3>
+            			</div>
+            			<div class="ordinateur-type" id="gaming">
+                			<img src="CSS/images/ordinateur-gaming.jpg" alt="Ordinateur Gaming">
+                			<h3>Gaming</h3>
+            			</div>
+            			<div class="ordinateur-type" id="multimedia">
+                			<img src="CSS/images/ordinateur-multimedia.jpg" alt="Ordinateur Multimédia">
+                			<h3>Multimédia</h3>
+            			</div>
+        		</div>
+
+        		<!-- Popup de configuration -->
+        		<div id="popup-config" class="popup">
+           	 		<div class="popup-content">
+                			<span class="close-btn">&times;</span>
+                			<h3>Choisissez votre configuration</h3>
+                			<div id="configurations"></div>
+            			</div>
+        		</div>
+    		</section>
+
     <footer>
         <p>&copy; 2024 ProxiTechno Informatique. Tous droits réservés.</p>
-		<p>
+        <p>
             <a href="mentions_légales.html">Mentions légales</a>
         </p>
-
     </footer>
-</body>
+
+    <script src="JS/script.js"></script>
+	</body>
+	<footer>
+        	<p>&copy; 2024 ProxiTechno Informatique. Tous droits réservés.</p>
+			<p>
+            	<a href="mentions_légales.html">Mentions légales</a>
+        	</p>
+    	</footer>
 </html>
