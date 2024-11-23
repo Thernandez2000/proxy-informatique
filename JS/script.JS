@@ -19,9 +19,11 @@ document.querySelectorAll('.ordinateur-type').forEach(function (type) {
                         <li>Config 2 : Processeur i5, 16Go RAM, SSD 512Go - <strong>700€</strong></li>
                         <li>Config 3 : Processeur Ryzen 5, 16Go RAM, SSD 1To - <strong>850€</strong></li>
                     </ul>
-                    <p><strong>Votre configuration personnalisée est prête !</strong></p>
-                    <p>Pour recevoir un devis détaillé et procéder à la commande des composants nécessaires, merci de fournir votre numéro de téléphone.</p>
-                    <p><strong>Le paiement s'effectue à l'avance pour valider votre commande.</strong></p>
+                    <div class="message">
+                        <p><strong>Pour une configuration personnalisée :</strong></p>
+                        <p>Merci de me contacter directement par téléphone au <strong>06.95.21.78.10</strong> ou via le formulaire disponible sur le site.</p>
+                        <p><strong>Important :</strong> Tous les paiements pour les commandes se feront à l'avance. Le devis sera envoyé par email ou pourra être récupéré sous format papier dans mon local. Veuillez préciser à l'avance la manière dont vous souhaitez recevoir votre devis. Par défaut, il sera envoyé par email.</p>
+                    </div>
                 </div>
             `;
         } else if (typeId === 'gaming') {
