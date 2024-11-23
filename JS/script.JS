@@ -1,6 +1,7 @@
 document.querySelectorAll('.ordinateur-type').forEach(function (type) {
     type.addEventListener('click', function () {
         const typeId = this.id; // Récupère l'id de l'élément cliqué
+        console.log(`Type d'ordinateur cliqué : ${typeId}`);  // Vérifier quel type est sélectionné
         const configContainer = document.getElementById('configurations');
         const popup = document.getElementById('popup-config');
         
@@ -37,5 +38,6 @@ document.querySelectorAll('.ordinateur-type').forEach(function (type) {
 });
 
 document.querySelector('.close-btn').addEventListener('click', function () {
+    console.log('Popup fermée');  // Vérifier si le bouton de fermeture est cliqué
     document.getElementById('popup-config').style.display = 'none';
 });
