@@ -39,11 +39,5 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('bureautique-config').classList.add('hidden');
     });
 
-    // Fermer la pop-up en cliquant en dehors
-    window.addEventListener('click', function (e) {
-        if (e.target.id === 'popup-assemblage') {
-            popup.style.display = 'none';
-            isPopupOpen = false;  // Réinitialiser le flag lorsque la popup est fermée
-        }
     });
 });
