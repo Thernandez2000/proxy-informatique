@@ -153,14 +153,14 @@ footer {
 }
 /* Pop-up style */
 .popup {
-    display: none;
+    display: none; /* Cacher la popup par défaut */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8); /* Fond transparent sombre */
+    z-index: 1000; /* Assurez-vous que la popup est au-dessus */
     justify-content: center;
     align-items: center;
 }
@@ -172,6 +172,8 @@ footer {
     width: 80%;
     max-width: 500px;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombre pour l'effet popup */
+    position: relative; /* Pour le positionnement du bouton de fermeture */
 }
 
 .popup-content h3 {
@@ -192,29 +194,19 @@ footer {
 .popup-content .btn-option:hover {
     background-color: #1a252f;
 }
-/* Style de l'arrière-plan */
+
+/* Overlay */
 .popup-overlay {
+    display: none; /* Cacher l'overlay par défaut */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* Fond transparent sombre */
-    display: none; /* Par défaut, masqué */
+    z-index: 999; /* L'overlay doit être derrière la popup */
     justify-content: center;
     align-items: center;
-    z-index: 1000;
-}
-
-/* Style de la fenêtre popup */
-.popup-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    width: 400px;
-    max-width: 90%; /* S'adapte aux petits écrans */
-    text-align: center;
 }
 
 /* Bouton de fermeture */
@@ -228,7 +220,7 @@ footer {
     color: #333;
 }
 
-
+/* Classe cachée */
 .hidden {
     display: none;
 }
