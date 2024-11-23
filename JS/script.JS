@@ -1,3 +1,5 @@
+// Ajout d'un log pour vérifier que le script est bien lancé
+console.log("Le script est lancé !");
 document.querySelectorAll('.ordinateur-type').forEach(function (type) {
     type.addEventListener('click', function () {
         const typeId = this.id; // Récupère l'id de l'élément cliqué
