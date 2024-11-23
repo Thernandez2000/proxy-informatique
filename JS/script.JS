@@ -33,6 +33,11 @@ document.querySelectorAll('.ordinateur-type').forEach(function (type) {
                 </div>
             `;
         }
+        // Ajoute les configurations dans le conteneur
+        configContainer.innerHTML = configurationsHTML;
+
+        // Affiche la popup
+        popup.style.display = 'block';  // Afficher la popup
 
     });
 });
