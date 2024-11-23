@@ -32,8 +32,6 @@ document.querySelectorAll('.ordinateur-type').forEach(function (type) {
             `;
         }
 
-        configContainer.innerHTML = configurationsHTML;
-        popup.style.display = 'block';
     });
 });
 
