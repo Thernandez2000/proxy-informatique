@@ -157,54 +157,46 @@
                 				<label for="message">Message</label>
                 				<textarea id="message" name="message" rows="4" placeholder="Votre message ou détails supplémentaires"></textarea>
             				</div>
-					<div class="g-recaptcha" data-sitekey="6Lf--YsqAAAAAMnyqI6sIJYEORNFu2qTMhRbdBnK"></div>
+					<div class="g-recaptcha" data-sitekey="6Lf--YsqAAAAAMnyqI6sIJYEORNFu2qTMhRbdBnK" data-callback="onRecaptchaSuccess"></div>
             				<div class="form-group">
                 				<button type="submit" class="btn-submit">Envoyer</button>
             				</div>
         			</form>
 			</div>
 		</section>
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
 		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 		<script>
-    			// Ajout de l'événement de soumission du formulaire
-    			document.getElementById("contact-form").addEventListener("submit", function(event) {
-        		event.preventDefault();  // Empêche l'envoi immédiat du formulaire
+    			function onRecaptchaSuccess(token) {
+        		// Ajoute le token à ton formulaire avant de l'envoyer
+        		const formData = new FormData(document.getElementById('contact-form'));
+        		formData.append('g-recaptcha-response', token);
 
-        		var recaptchaResponse = grecaptcha.getResponse();
-
-       			 // Vérifie si la réponse reCAPTCHA est vide (ce qui signifie que l'utilisateur n'a pas validé)
-        		if (recaptchaResponse.length === 0) {
-            		alert("Veuillez valider que vous n'êtes pas un robot !");
-            		return;
-        		}
-
-        		// Envoie la réponse du reCAPTCHA à Google pour validation côté serveur
-        		fetch('https://www.google.com/recaptcha/api/siteverify', {
+        		// Envoie le formulaire au serveur pour validation
+        		fetch('/verify-recaptcha', {
             		method: 'POST',
-            		body: new URLSearchParams({
-                	secret: '6Lf--YsqAAAAAMnyqI6sIJYEORNFu2qTMhRbdBnK',  // Remplace par ta clé secrète
-                	response: recaptchaResponse
-            		})
+            		body: formData
         		})
         		.then(response => response.json())
         		.then(data => {
             		if (data.success) {
-                	// Si la validation reCAPTCHA réussie, envoie le formulaire via EmailJS
-                	emailjs.sendForm('service_c9yjlbb', 'template_ns1mkun', this, 'HJYzPJidF6EdnLYfG')
-                    	.then(function(response) {
-                        alert("Message envoyé avec succès !");
-                    	}	, function(error) {
-                        alert("Erreur lors de l'envoi du message : " + JSON.stringify(error));
-                    	});
+                	alert("Formulaire validé et soumis avec succès !");
             		} else {
-                	alert('Vérification reCAPTCHA échouée. Veuillez réessayer.');
+                	alert(data.error || "Erreur de validation.");
             		}
         		})
-        		.catch(function(error) {
-            		alert('Erreur lors de la vérification reCAPTCHA : ' + error);
+        		.catch(error => {
+            		console.error('Erreur:', error);
+            		alert("Une erreur s'est produite lors de la soumission.");
         		});
-    			});
+    }            	// Envoi du formulaire via EmailJS
+            		emailjs.sendForm('service_c9yjlbb', 'template_ns1mkun', formData, 'HJYzPJidF6EdnLYfG')
+                	.then(function(response) {
+                    	alert("Message envoyé avec succès !");
+                	}, function(error) {
+                    	alert("Erreur lors de l'envoi du message : " + JSON.stringify(error));
+                	});
+        		});
 		</script>
 
 		<script>
