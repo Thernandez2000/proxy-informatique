@@ -49,6 +49,7 @@ header nav {
     display: flex; /* Active Flexbox */
     align-items: center; /* Aligne verticalement le logo et les liens */
     justify-content: space-between; /* Espace les éléments (si nécessaire) */
+    position: relative; /* Ajoute cette ligne */
 }
 /* Ajoute les nouvelles règles pour le responsive */
 @media (max-width: 768px) {
