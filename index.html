@@ -167,37 +167,37 @@
 		<script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
 		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 		<script>
-    			function onRecaptchaSuccess(token) {
-        		// Ajoute le token à ton formulaire avant de l'envoyer
-        		const formData = new FormData(document.getElementById('contact-form'));
-        		formData.append('g-recaptcha-response', token);
+  			function onRecaptchaSuccess(token) {
+   				 // Ajoute le token à ton formulaire avant de l'envoyer
+    			const formData = new FormData(document.getElementById('contact-form'));
+    			formData.append('g-recaptcha-response', token); // Ajoute le token reCAPTCHA
 
-        		// Envoie le formulaire au serveur pour validation
-        		fetch('/verify-recaptcha', {
-            		method: 'POST',
-            		body: formData
-        		})
-        		.then(response => response.json())
-        		.then(data => {
-            		if (data.success) {
-                	alert("Formulaire validé et soumis avec succès !");
-            		} else {
-                	alert(data.error || "Erreur de validation.");
-            		}
-        		})
-        		.catch(error => {
-            		console.error('Erreur:', error);
-            		alert("Une erreur s'est produite lors de la soumission.");
-        		});
-    }            	// Envoi du formulaire via EmailJS
-            		emailjs.sendForm('service_c9yjlbb', 'template_ns1mkun', formData, 'HJYzPJidF6EdnLYfG')
-                	.then(function(response) {
-                    	alert("Message envoyé avec succès !");
-                	}, function(error) {
-                    	alert("Erreur lors de l'envoi du message : " + JSON.stringify(error));
-                	});
-        		});
+    			// Vérifie la réponse reCAPTCHA côté serveur
+    			fetch('/verify-recaptcha', {
+      			method: 'POST',
+      			body: formData
+    			})
+    			.then(response => response.json())
+    			.then(data => {
+      			if (data.success) {
+        		// Si la vérification est réussie, envoie le formulaire via EmailJS
+        		emailjs.sendForm('service_c9yjlbb', 'template_ns1mkun', formData, 'HJYzPJidF6EdnLYfG')
+          		.then(function(response) {
+            		alert("Message envoyé avec succès !");
+          		}, function(error) {
+            		alert("Erreur lors de l'envoi du message : " + JSON.stringify(error));
+          		});
+      			} else {
+        			alert(data.error || "Erreur de validation reCAPTCHA.");
+      			}
+    			})
+    			.catch(error => {
+      			console.error('Erreur lors de la vérification reCAPTCHA:', error);
+      			alert("Une erreur s'est produite lors de la soumission.");
+    			});
+  			}
 		</script>
+
 
 		<script>
   		  	const toggleButton = document.querySelector('.menu-toggle');
