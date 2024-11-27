@@ -385,6 +385,72 @@ footer {
     .hidden {
         display: none;
     }
+/* Styles par défaut pour les petits écrans (mobile first) */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1rem;
+}
+
+input, select, textarea {
+    font-size: 0.9rem;
+}
+
+/* Media queries pour les écrans moyens (tablettes) */
+@media (min-width: 768px) {
+    .container {
+        width: 80%;
+    }
+
+    .form-group {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    label {
+        flex: 1;
+        font-size: 1.1rem;
+    }
+
+    input, select, textarea {
+        flex: 2;
+        margin-left: 10px;
+        font-size: 1rem;
+    }
+}
+
+/* Media queries pour les grands écrans (ordinateurs) */
+@media (min-width: 1024px) {
+    .container {
+        width: 60%;
+    }
+
+    .title {
+        font-size: 2.5em;
+    }
+
+    .form-group {
+        flex-direction: row;
+    }
+
+    input, select, textarea {
+        font-size: 1.1rem;
+    }
+
+    .btn-submit {
+        font-size: 1.2rem;
+    }
+}
+
 
 #mentions-legales {
     padding: 50px 20px;
