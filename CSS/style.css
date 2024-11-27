@@ -105,7 +105,10 @@ header nav {
         color: white;
         background: none;
         border: none;
-        position: relative;
+        position: absolute; /* Positionnement absolu */
+        right: 20px; /* Positionne le bouton burger à droite */
+        top: 50%; /* Centre le bouton verticalement */
+        transform: translateY(-50%); /* Ajuste pour un alignement parfait */
     }
 
     /* Cache le menu sur mobile par défaut */
