@@ -160,20 +160,6 @@
                 				<button type="submit" class="btn-submit">Envoyer</button>
             				</div>
         			</form>
-				     		   <!-- Zone pour afficher la confirmation -->
-        			<div id="confirmation-message" style="display:none; margin-top: 20px;">
-            				<h3>Merci pour votre demande !</h3>
-            				<p>Voici les informations que vous avez saisies :</p>
-            				<ul>
-                				<li><strong>Nom:</strong> <span id="confirm-name"></span></li>
-                				<li><strong>Prénom:</strong> <span id="confirm-firstname"></span></li>
-                				<li><strong>Email:</strong> <span id="confirm-email"></span></li>
-                				<li><strong>Téléphone:</strong> <span id="confirm-phone"></span></li>
-                				<li><strong>Type de demande:</strong> <span id="confirm-request-type"></span></li>
-                				<li><strong>Message:</strong> <span id="confirm-message"></span></li>
-            				</ul>
-        			</div>
-    		
 			</div>
 		</section>
 
@@ -204,54 +190,6 @@
             		});
     			});
 		</script>
-		<script>
-			// script pour envoie mail confirmation
-    			(function() {
-        			emailjs.init("HJYzPJidF6EdnLYfG"); // Remplacez "your_user_id" par votre User ID d'EmailJS
-    			})();
-
-    			document.getElementById('contact-form').addEventListener('submit', function(event) {
-        		event.preventDefault();
-
-        		// Récupérer les valeurs du formulaire
-        		var name = document.getElementById('name').value;
-        		var firstname = document.getElementById('firstname').value;
-        		var email = document.getElementById('email').value;
-        		var phone = document.getElementById('phone').value;
-        		var requestType = document.getElementById('request-type').value;
-        		var message = document.getElementById('message').value;
-
-        		// Afficher les informations de confirmation
-        		document.getElementById('confirm-name').textContent = name;
-        		document.getElementById('confirm-firstname').textContent = firstname;
-        		document.getElementById('confirm-email').textContent = email;
-        		document.getElementById('confirm-phone').textContent = phone;
-        		document.getElementById('confirm-request-type').textContent = requestType;
-        		document.getElementById('confirm-message').textContent = message;
-
-        		// Cacher le formulaire et afficher le message de confirmation
-        		document.querySelector('form').style.display = 'none';
-        		document.getElementById('confirmation-message').style.display = 'block';
-
-        		// Préparer et envoyer l'email via EmailJS
-        		var templateParams = {
-            		name: name,
-            		firstname: firstname,
-            		email: email,
-            		phone: phone,
-            		'request-type': requestType,
-            		message: message
-        		};
-
-        		emailjs.send('service_c9yjlbb', 'template_hc0ba0q', templateParams)
-            		.then(function(response) {
-                	console.log('SUCCESS!', response);
-            		}, function(error) {
-                	console.log('FAILED...', error);
-            		});
-    			});
-		</script>
-
     			<script src="JS/script.JS" defer></script>
 	</body>
 	<footer>
