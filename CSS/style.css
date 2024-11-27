@@ -50,7 +50,46 @@ header nav {
     align-items: center; /* Aligne verticalement le logo et les liens */
     justify-content: space-between; /* Espace les éléments (si nécessaire) */
 }
+/* Ajoute les nouvelles règles pour le responsive */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column; /* Passe en colonne sur petits écrans */
+        align-items: flex-start; /* Aligne à gauche */
+        padding: 10px 15px;
+    }
 
+    .menu-toggle {
+        display: block; /* Affiche le bouton burger */
+        cursor: pointer;
+        font-size: 20px;
+        color: white;
+        background: none;
+        border: none;
+    }
+
+    header nav ul {
+        display: none; /* Cache le menu par défaut */
+        flex-direction: column; /* Transforme les liens en liste verticale */
+        width: 100%;
+        margin-top: 10px;
+        background-color: #4CAF50; /* Même couleur que le header */
+        border-radius: 5px;
+        overflow: hidden; /* Évite que les éléments dépassent */
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+        text-align: left; /* Les liens sont alignés à gauche */
+    }
+
+    header nav ul li a {
+        font-size: 14px; /* Réduit légèrement la taille */
+    }
+
+    .menu-open ul {
+        display: flex; /* Affiche le menu quand on clique sur le bouton burger */
+    }
+}
 
 section {
     padding: 20px;
