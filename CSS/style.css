@@ -526,8 +526,10 @@ input, select, textarea {
     }
 
     input, select, textarea {
+        flex: 2;
         font-size: 1.1rem;
         width: 48%; /* Assure que les champs prennent chacun 48% de la largeur */
+        margin-left: 10px;
     }
 
     .btn-submit {
