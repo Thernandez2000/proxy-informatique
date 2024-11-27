@@ -90,6 +90,40 @@ header nav {
         display: flex; /* Affiche le menu quand on clique sur le bouton burger */
     }
 }
+/* Par défaut (grands écrans) */
+.menu-toggle {
+    display: none; /* Cache le bouton burger sur PC */
+}
+
+/* Cacher le menu sur mobile et afficher le bouton burger */
+@media (max-width: 768px) {
+    /* Affiche le bouton burger uniquement sur mobile */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: white;
+        background: none;
+        border: none;
+        position: relative;
+    }
+
+    /* Cache le menu sur mobile par défaut */
+    nav ul {
+        display: none;
+        flex-direction: column; /* Empile les liens verticalement */
+        width: 100%;
+        margin-top: 10px;
+        background-color: #4CAF50;
+        border-radius: 5px;
+    }
+
+    /* Affiche le menu lorsque la classe menu-open est activée */
+    nav.menu-open ul {
+        display: flex;
+    }
+}
+
 
 section {
     padding: 20px;
