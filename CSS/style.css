@@ -522,10 +522,12 @@ input, select, textarea {
 
     .form-group {
         flex-direction: row;
+        justify-content: space-between; /* Ajoute un espacement entre les éléments */
     }
 
     input, select, textarea {
         font-size: 1.1rem;
+        width: 48%; /* Assure que les champs prennent chacun 48% de la largeur */
     }
 
     .btn-submit {
