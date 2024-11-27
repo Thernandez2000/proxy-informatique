@@ -522,8 +522,9 @@ input, select, textarea {
     }
 
     .form-group {
-        flex-direction: row;
-        justify-content: space-between; /* Ajoute un espacement entre les éléments */
+        display: flex;
+        flex-wrap: wrap; /* Permet de forcer les champs à se placer sur la ligne suivante si nécessaire */
+        justify-content: space-between;
     }
 
     label {
@@ -531,10 +532,10 @@ input, select, textarea {
         font-size: 1.1rem;
     }
 
-    input, select, textarea {
-        flex: 2;
-        width: 48%; /* Assure que les champs prennent chacun 48% de la largeur */
-        margin-left: 10px;
+    /* Largeur fixe des champs sur grande taille d'écran */
+    .form-group input, .form-group select, .form-group textarea {
+        width: 48%; /* Cela garantit que chaque champ prend 48% de la largeur */
+        margin-left: 10px; /* Marge entre les champs */
         font-size: 1.1rem;
     }
 
@@ -542,6 +543,7 @@ input, select, textarea {
         font-size: 1.2rem;
     }
 }
+
 
 
 #mentions-legales {
