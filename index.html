@@ -163,6 +163,14 @@
         			</form>
 			</div>
 		</section>
+		<script>
+  		  	const toggleButton = document.querySelector('.menu-toggle');
+   	 		const nav = document.querySelector('nav');
+
+    			toggleButton.addEventListener('click', () => {
+        		nav.classList.toggle('menu-open');
+    			});
+		</script>
 
 		<script>
     			// Afficher les options d'assemblage si l'utilisateur choisit "Demande d'assemblage de PC"
