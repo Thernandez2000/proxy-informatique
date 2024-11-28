@@ -157,26 +157,14 @@
                 				<label for="message">Message</label>
                 				<textarea id="message" name="message" rows="4" placeholder="Votre message ou détails supplémentaires"></textarea>
             				</div>
-					 <div class="g-recaptcha" data-sitekey="6Lf--YsqAAAAAMnyqI6sIJYEORNFu2qTMhRbdBnK" data-action="LOGIN"></div>
-					<div class="form-group">
+					 <div class="form-group">
                 				<button type="submit" class="btn-submit">Envoyer</button>
             				</div>
         			</form>
 			</div>
 		</section>
-		<script src="https://www.google.com/recaptcha/enterprise.js?render=6Lf--YsqAAAAAMnyqI6sIJYEORNFu2qTMhRbdBnK" async defer></script>
 		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 		<script>
-    				// Écouter l'envoi du formulaire
-    			document.getElementById("login-form").addEventListener("submit", function(event) {
-        		event.preventDefault();  // Empêche l'envoi immédiat du formulaire
-
-        		// Récupérer le jeton reCAPTCHA
-        		grecaptcha.ready(function() {
-            		grecaptcha.execute('6Lf--YsqAAAAAMnyqI6sIJYEORNFu2qTMhRbdBnK', {action: 'LOGIN'}).then(function(token) {
-                	// Ajouter le jeton à ton formulaire
-                	var formData = new FormData(document.getElementById("login-form"));
-                	formData.append('g-recaptcha-response', token);  // Ajouter le jeton reCAPTCHA
 
                 	// Envoi via EmailJS
                 	emailjs.sendForm('service_c9yjlbb', 'template_ns1mkun', formData, 'HJYzPJidF6EdnLYfG')
