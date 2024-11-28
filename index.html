@@ -225,6 +225,17 @@
             }, minTimeToSubmit); // Délai de 3 secondes avant d'accepter l'envoi
         });
 		</script>
+		<script>
+    			document.addEventListener('DOMContentLoaded', function () {
+        			const menuToggle = document.querySelector('.menu-toggle'); // Sélectionner le bouton du menu
+        			const menu = document.querySelector('nav ul'); // Sélectionner la liste du menu
+
+        			// Ajouter un événement de clic sur le bouton du menu
+        			menuToggle.addEventListener('click', function () {
+            				menu.classList.toggle('active'); // Toggle la classe "active" pour afficher/masquer le menu
+        			});
+    			});
+		</script>
 
 		<script>
     			// Afficher les options d'assemblage si l'utilisateur choisit "Demande d'assemblage de PC"
