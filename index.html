@@ -166,7 +166,7 @@
 		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 		<script>
    			 // Initialiser EmailJS avec votre clé publique
-   	 		emailjs.init("VOTRE_CLE_PUBLIQUE");
+   	 		emailjs.init("HJYzPJidF6EdnLYfG");
 
     			// Gérer la soumission du formulaire
     			document.getElementById("contact-form").addEventListener("submit", function (event) {
@@ -185,7 +185,7 @@
         		};
 
         			// Envoyer via EmailJS
-        		emailjs.send("VOTRE_SERVICE_ID", "VOTRE_TEMPLATE_ID", formData)
+        		emailjs.send("service_c9yjlbb", "template_ns1mkun", formData)
             		.then(function (response) {
                 		alert("Votre message a été envoyé avec succès !");
                 		console.log("SUCCESS!", response.status, response.text);
