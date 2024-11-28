@@ -183,7 +183,7 @@
             event.preventDefault(); // Empêcher l'envoi par défaut du formulaire
 
             // Honey Pot : Si le champ caché est rempli, c'est probablement un bot
-            const honeyPot = document.getElementById("honey-pot").value;
+            const honeyPot = document.getElementById("honeypot").value;
             if (honeyPot !== "") {
                 alert("Bot détecté !");
                 return;
