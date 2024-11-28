@@ -170,31 +170,31 @@
 
     			// Gérer la soumission du formulaire
     			document.getElementById("contact-form").addEventListener("submit", function (event) {
-        		event.preventDefault(); // Empêcher l'envoi par défaut du formulaire
+        			event.preventDefault(); // Empêcher l'envoi par défaut du formulaire
 
-        		// Collecter les données du formulaire
-        		const formData = {
-            			name: document.getElementById("name").value,
-            			firstname: document.getElementById("firstname").value,
-            			email: document.getElementById("email").value,
-            			phone: document.getElementById("phone").value,
-            			request_type: document.getElementById("request-type").value,
-            			pc_type: document.getElementById("pc-type") ? document.getElementById("pc-type").value : "N/A",
-            			pc_config: document.getElementById("pc-config") ? document.getElementById("pc-config").value : "N/A",
-            			message: document.getElementById("message").value,
-        		};
+        			// Collecter les données du formulaire
+        			const formData = {
+            				name: document.getElementById("name").value,
+            				firstname: document.getElementById("firstname").value,
+            				email: document.getElementById("email").value,
+            				phone: document.getElementById("phone").value,
+            				request_type: document.getElementById("request-type").value,
+            				pc_type: document.getElementById("pc-type") ? document.getElementById("pc-type").value : "N/A",
+            				pc_config: document.getElementById("pc-config") ? document.getElementById("pc-config").value : "N/A",
+            				message: document.getElementById("message").value,
+        			};
 
         			// Envoyer via EmailJS
-        		emailjs.send("service_c9yjlbb", "template_ns1mkun", formData)
-            		.then(function (response) {
-                		alert("Votre message a été envoyé avec succès !");
-                		console.log("SUCCESS!", response.status, response.text);
-                		document.getElementById("contact-form").reset(); // Réinitialiser le formulaire
-            		}, function (error) {
-                	alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
-                	console.error("FAILED...", error);
-            		});
-    			});
+        			emailjs.send("service_c9yjlbb", "template_ns1mkun", formData)
+            				.then(function (response) {
+                				alert("Votre message a été envoyé avec succès !");
+                				console.log("SUCCESS!", response.status, response.text);
+                				document.getElementById("contact-form").reset(); // Réinitialiser le formulaire
+            				}, function (error) {
+                				alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+                				console.error("FAILED...", error);
+            				});
+    				});
 		</script>
 
 
