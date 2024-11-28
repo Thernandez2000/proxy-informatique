@@ -169,67 +169,71 @@
 		</section>
 		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 		<script>
- 			// Initialiser EmailJS
+  				// Initialiser EmailJS
         		emailjs.init("HJYzPJidF6EdnLYfG");
 
-        			// Détecter le temps de début
+        		// Détecter le temps de début
         		const formStartTime = Date.now();
 
-       			 	// Fonction pour vérifier la réponse à la question
+        		// Fonction pour vérifier la réponse à la question
         		function validateCaptcha() {
             			const answer = prompt("Vérification : 3 + 2 = ?");
-            			if (answer == "5") {
-                			return true; // Réponse correcte, on peut envoyer le formulaire
-            			} else {
-                			alert("Réponse incorrecte. Veuillez réessayer.");
-                			return false; // Réponse incorrecte, on ne soumet pas le formulaire
-            			}
+            		if (answer == "5") {
+                	return true; // Réponse correcte, on peut envoyer le formulaire
+            		} else {
+                		alert("Réponse incorrecte. Veuillez réessayer.");
+                		return false; // Réponse incorrecte, on ne soumet pas le formulaire
+           		 }
+       			 }
+
+        		// Fonction de validation du formulaire avant envoi
+        		function validateFormAndSend(event) {
+            		event.preventDefault(); // Bloque l'envoi natif du formulaire
+
+            		// Vérification du champ "honey pot" (il doit être vide)
+           		 if (document.getElementById("trap").value !== "") {
+                	alert("Formulaire détecté comme spam. Envoi bloqué.");
+                	return;
+            		}
+
+            		// Vérification du temps minimum pour remplir le formulaire (3 secondes ici)
+            		const formFillTime = (Date.now() - formStartTime) / 1000; // Temps en secondes
+            		if (formFillTime < 3) {
+                	alert("Vous avez rempli le formulaire trop rapidement. Veuillez réessayer.");
+                	return;
+            		}
+
+            		// Validation de la question de sécurité (question posée dans une popup après soumission)
+            		const captchaValid = validateCaptcha();
+            		if (!captchaValid) {
+                	return; // Si la réponse est incorrecte, ne soumettre pas le formulaire
+            		}
+
+            		// Collecter les données du formulaire
+            		const formData = {
+                	name: document.getElementById("name").value,
+                	firstname: document.getElementById("firstname").value,
+                	email: document.getElementById("email").value,
+                	phone: document.getElementById("phone").value,
+                	request_type: document.getElementById("request-type").value,
+                	pc_type: document.getElementById("pc-type") ? document.getElementById("pc-type").value : "N/A",
+                	message: document.getElementById("message").value,
+            		};
+
+            		// Envoyer via EmailJS
+            		emailjs.send("service_c9yjlbb", "template_ns1mkun", formData)
+                	.then(function (response) {
+                    	alert("Votre message a été envoyé avec succès !");
+                    	console.log("SUCCESS!", response.status, response.text);
+                    	document.getElementById("contact-form").reset(); // Réinitialiser le formulaire
+                	}, function (error) {
+                    	alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+                    	console.error("FAILED...", error);
+                		});
         		}
 
-        		// Gestion de l'envoi du formulaire
-        		document.getElementById("contact-form").addEventListener("submit", function (event) {
-            			event.preventDefault(); // Bloque l'envoi natif du formulaire
-
-            			// Vérification du champ "honey pot" (il doit être vide)
-            			if (document.getElementById("trap").value !== "") {
-                			alert("Formulaire détecté comme spam. Envoi bloqué.");
-                			return;
-            			}
-
-            			// Vérification du temps minimum pour remplir le formulaire (3 secondes ici)
-            			const formFillTime = (Date.now() - formStartTime) / 1000; // Temps en secondes
-            			if (formFillTime < 3) {
-                			alert("Vous avez rempli le formulaire trop rapidement. Veuillez réessayer.");
-                			return;
-            			}	
-
-            			// Validation de la question de sécurité
-            			if (!validateCaptcha()) {
-                			return; // Si la réponse à la question est incorrecte, on ne soumet pas
-            			}
-
-            			// Collecter les données du formulaire
-            			const formData = {
-                			name: document.getElementById("name").value,
-                			firstname: document.getElementById("firstname").value,
-                			email: document.getElementById("email").value,
-                			phone: document.getElementById("phone").value,
-                			request_type: document.getElementById("request-type").value,
-                			pc_type: document.getElementById("pc-type") ? document.getElementById("pc-type").value : "N/A",
-                			message: document.getElementById("message").value,
-            			};
-
-            			// Envoyer via EmailJS
-            			emailjs.send("service_c9yjlbb", "template_ns1mkun", formData)
-                			.then(function (response) {
-                    				alert("Votre message a été envoyé avec succès !");
-                    				console.log("SUCCESS!", response.status, response.text);
-                    				document.getElementById("contact-form").reset(); // Réinitialiser le formulaire
-                			}, function (error) {
-                    				alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
-                    				console.error("FAILED...", error);
-                			});
-        			});
+        		// Ajouter un écouteur d'événement pour le formulaire
+        		document.getElementById("contact-form").addEventListener("submit", validateFormAndSend);
 		</script>
 
 
